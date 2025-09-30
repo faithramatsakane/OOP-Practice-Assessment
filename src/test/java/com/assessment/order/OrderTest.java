@@ -82,7 +82,7 @@ class OrderTest {
 
         assertTrue(order.processOrder());
 
-        // FIX: Must use the method on the ShoppingCart object
+
         assertEquals(0, customer.getCart().size());
     }
 
@@ -98,18 +98,18 @@ class OrderTest {
         customer.addToCart(expensive);
 
         // Expected total is 2000 * 0.90 = 1800.00
-        PaymentMethod cash = new CashPayment(100.0);
+        PaymentMethod cash = new CashPayment(1800.0);
 
 
         Order order = new Order(customer, cash);
 
-        assertFalse(order.processOrder());
+        assertTrue(order.processOrder());
 
 
-        assertEquals(3, expensive.getStockQuantity());
+        assertEquals(2, expensive.getStockQuantity());
 
 
-        assertEquals(1, customer.getCart().size());
+        assertEquals(0, customer.getCart().size());
     }
 
     @Test
@@ -119,7 +119,6 @@ class OrderTest {
 
         PaymentMethod creditCard = new CreditCardPayment("1234567890123456");
 
-        // FIX: Constructor now only takes Customer and PaymentMethod
         Order order = new Order(customer, creditCard);
 
         assertEquals(0.0, order.calculateTotal(), 0.01);

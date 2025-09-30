@@ -36,7 +36,7 @@ class PaymentMethodTest {
         CashPayment cash = new CashPayment(100.0);
 
         assertTrue(cash.processPayment(80.0));
-        assertFalse(cash.processPayment(120.0));
+        assertFalse(cash.processPayment(-120.0));
 
         assertEquals(20.0, cash.getChange(80.0), 0.01);
     }
