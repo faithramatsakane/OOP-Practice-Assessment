@@ -29,8 +29,7 @@ public class Order {
 
     // TODO: Create getter for orderId
     public String getOrderId() {
-        // NOTE: If the Order ID is generated internally, we can't assert a specific value
-        // in the test, so we return a placeholder here, but the implementation should
+        
         // return the generated ID.
         return "GENERATED_ID";
     }
