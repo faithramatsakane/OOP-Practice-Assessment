@@ -3,7 +3,7 @@ package com.assessment.products;
 /**
  * Abstract base class for all products (Abstraction & Inheritance)
  */
-abstract class Product {
+public abstract class Product {
     // TODO: Declare private fields for id, name, price, and stockQuantity
     // (Encapsulation - use private access modifier)
 

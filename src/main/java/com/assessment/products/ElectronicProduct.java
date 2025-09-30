@@ -3,7 +3,7 @@ package com.assessment.products;
 /**
  * Concrete product class for electronics (Inheritance & Polymorphism)
  */
-class ElectronicProduct extends Product {
+public class ElectronicProduct extends Product {
     // TODO: Add private fields for warrantyPeriod (int, in months) and brand (String)
 
     // TODO: Create constructor that calls super() and initializes electronics-specific fields

@@ -3,7 +3,7 @@ package com.assessment.payment;
 /**
  * Cash payment implementation (Polymorphism)
  */
-class CashPayment implements PaymentMethod {
+public class CashPayment implements PaymentMethod {
     // TODO: Add private field for amountTendered (double)
 
     // TODO: Create constructor that initializes amountTendered

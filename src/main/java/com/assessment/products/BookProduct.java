@@ -3,7 +3,7 @@ package com.assessment.products;
 /**
  * Concrete product class for books (Inheritance & Polymorphism)
  */
-class BookProduct extends Product {
+public class BookProduct extends Product {
     // TODO: Add private fields for author (String) and numberOfPages (int)
 
     // TODO: Create constructor that calls super() and initializes book-specific fields

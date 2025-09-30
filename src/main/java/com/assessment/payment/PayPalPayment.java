@@ -3,7 +3,7 @@ package com.assessment.payment;
 /**
  * PayPal payment implementation (Polymorphism)
  */
-class PayPalPayment implements PaymentMethod {
+public class PayPalPayment implements PaymentMethod {
     // TODO: Add private field for email (String)
 
     // TODO: Create constructor that initializes email

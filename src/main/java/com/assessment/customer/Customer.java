@@ -3,7 +3,7 @@ package com.assessment.customer;
 /**
  * Customer class with shopping cart functionality (Encapsulation)
  */
-class Customer {
+public class Customer {
     // TODO: Add private fields for name (String), email (String),
     // and shoppingCart (ArrayList<Product>)
 

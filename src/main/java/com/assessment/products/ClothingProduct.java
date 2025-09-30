@@ -3,7 +3,7 @@ package com.assessment.products;
 /**
  * Concrete product class for clothing (Inheritance & Polymorphism)
  */
-class ClothingProduct extends Product {
+public class ClothingProduct extends Product {
     // TODO: Add private fields for size (String) and material (String)
 
     // TODO: Create constructor that calls super() and initializes clothing-specific fields

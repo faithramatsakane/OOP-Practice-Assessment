@@ -3,7 +3,7 @@ package com.assessment.payment;
 /**
  * Credit card payment implementation (Polymorphism)
  */
-class CreditCardPayment implements PaymentMethod {
+public class CreditCardPayment implements PaymentMethod {
     // TODO: Add private field for cardNumber (String)
 
     // TODO: Create constructor that initializes cardNumber
