@@ -71,4 +71,8 @@ public final class ShoppingCart {
     public int size() {
         return items.size();
     }
+
+    public List<Product> getItems() {
+        return items;
+    }
 }
