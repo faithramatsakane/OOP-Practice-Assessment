@@ -16,39 +16,38 @@ public class Order {
     // products (List<Product>), and paymentMethod (PaymentMethod)
 
     /**
-     * Constructs an Order object, copying products from the customer's cart.
+     * Constructs an Order object, generating a unique ID and copying products from the customer's cart.
+     * This is the ONLY constructor, enforcing internal ID generation.
      */
     public Order(Customer customer, PaymentMethod paymentMethod) {
-        // Unique ID Generation: A better way than just a number
-        // TODO: IMPLEMENT: Initialize orderId with the UUID structure.
+        // TODO: IMPLEMENT: Initialize orderId with the UUID structure ("ORD-" + UUID.randomUUID().toString()).
         // TODO: IMPLEMENT: Initialize customer and paymentMethod fields.
-        // TODO: IMPLEMENT: Copy products from customer's cart list.
+
+        // Products are copied from the Customer's Cart.
+        // TODO: IMPLEMENT: Copy products from customer.getCart().getItems() list into the internal 'products' list.
     }
 
     // TODO: Create getter for orderId
-    public String getOrderId() { return ""; }
+    public String getOrderId() {
+        // NOTE: If the Order ID is generated internally, we can't assert a specific value
+        // in the test, so we return a placeholder here, but the implementation should
+        // return the generated ID.
+        return "GENERATED_ID";
+    }
 
-    /**
-     * Calculates the total cost of all products in the order after discount.
-     * @return The final order total.
-     */
     public double calculateTotal() {
         // TODO: IMPLEMENT: Sum up all discounted product prices from the order list.
         return 0.0;
     }
 
-    /**
-     * Executes the payment and updates stock/cart if successful.
-     * @return true if the order was successfully processed, false otherwise.
-     */
     public boolean processOrder() {
         // TODO: IMPLEMENT STEPS:
         // 1. Check if products list is not empty.
         // 2. Calculate total.
         // 3. Process payment using paymentMethod.processPayment(total).
         // 4. If payment is successful:
-        //    a. Reduce stock quantity for each product by 1.
-        //    b. Clear the customer's cart.
+        //    a. Reduce stock quantity for each product by 1 (using Product's setter).
+        //    b. Clear the customer's cart (using customer.clearCart()).
         //    c. CHALLENGE: Use 'instanceof' and Pattern Matching for 'CashPayment' to calculate and print change.
         // 5. Return success status.
         return false;
