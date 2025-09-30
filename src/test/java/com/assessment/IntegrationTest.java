@@ -50,7 +50,7 @@ public class IntegrationTest {
 
         PaymentMethod payment = new CreditCardPayment("5555444433332222");
 
-        Order order = new Order("ORD005", customer, payment);
+        Order order = new Order( customer, payment);
 
 
         assertTrue(order.processOrder());
