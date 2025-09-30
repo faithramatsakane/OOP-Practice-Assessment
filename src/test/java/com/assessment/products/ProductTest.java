@@ -120,10 +120,12 @@ public class ProductTest {
         product.setStockQuantity(10);
         assertEquals(10, product.getStockQuantity());
 
-        product.setPrice(-50.0);
-        assertEquals(350.0, product.getPrice());
 
-        product.setStockQuantity(-5);
-        assertEquals(10, product.getStockQuantity());
+        assertThrows(IllegalArgumentException.class, () -> {
+            product.setPrice(-50.0);
+        });
+
+
+        assertThrows(IllegalArgumentException.class, () -> {product.setStockQuantity(-5);});
     }
 }
