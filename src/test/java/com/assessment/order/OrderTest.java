@@ -96,7 +96,7 @@ class OrderTest {
 
         assertEquals(3, expensive.getStockQuantity());
 
-        assertEquals(1, customer.getCart().getItemCount());
+        assertEquals(1, customer.getCart().size());
     }
 
     @Test
