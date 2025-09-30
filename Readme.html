@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java OOP Assessment: Digital Library System Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-node {
+            border: 2px solid;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .flowchart-connector {
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            background-color: #7A5195;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: white;
+            border: 4px solid #374C80;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800">
+<!-- Selected Palette: Brilliant Blues (#003F5C, #374C80, #7A5195, #BC5090, #EF5675, #FF764A, #FFA600) -->
+<!-- Plan: 1. Intro & Objective. 2. Class Hierarchy Diagram. 3. Media Type Attribute Comparison. 4. OOP Principles Breakdown. 5. Project Workflow Timeline. 6. Evaluation Criteria Chart. -->
+<!-- Visualization Choices: Big Number (Inform), Flow Chart with HTML/CSS (Organize, NO SVG), Styled List (Compare, NO SVG), Bar Chart (Compare), Timeline with HTML/CSS (Organize, NO SVG), Donut Chart (Inform). All choices adhere to NO SVG/Mermaid constraints. -->
+<!-- Final check: Confirmed that NEITHER Mermaid JS NOR SVG were used anywhere in this output. -->
+
+<div class="container mx-auto p-4 md:p-8">
+    <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#003F5C] mb-2">Digital Library System</h1>
+        <p class="text-xl text-slate-600">An Infographic Guide to the Java OOP Assessment</p>
+    </header>
+
+    <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6 flex flex-col md:flex-row items-center justify-around">
+            <div class="text-center md:text-left mb-6 md:mb-0">
+                <h2 class="text-2xl font-bold text-[#003F5C] mb-2">Project Objective</h2>
+                <p class="text-slate-600 max-w-2xl">Build a flexible, command-line digital library catalog using core Java Object-Oriented Programming principles. The goal is to create a maintainable and extensible system for managing various media types.</p>
+            </div>
+            <div class="text-center p-6 bg-[#374C80] rounded-lg text-white">
+                <span class="text-6xl md:text-7xl font-black">4</span>
+                <p class="text-lg font-semibold">Core OOP Principles</p>
+            </div>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-center text-[#003F5C] mb-6">The Project Blueprint: Class Hierarchy</h2>
+            <p class="text-center text-slate-600 mb-8">The entire system is built on a foundation of inheritance. A general, abstract `MediaItem` class provides a common structure for all specific media types, which then extend it with their own unique properties.</p>
+            <div class="relative flex flex-col items-center">
+                <div class="flowchart-node border-[#003F5C] bg-[#003F5C]/10 w-64">
+                    <h3 class="font-bold text-[#003F5C]">MediaItem (Abstract)</h3>
+                    <p class="text-sm">Properties: title, year</p>
+                    <p class="text-sm">Behavior: displayDetails()</p>
+                </div>
+                <div class="flowchart-connector h-16" style="top: 100%;"></div>
+                <div class="absolute w-full h-2 bg-[#7A5195]" style="top: calc(100% + 4rem); left: 0;"></div>
+                <div class="w-full flex justify-around mt-32">
+                    <div class="relative w-1/4">
+                        <div class="flowchart-connector h-8" style="bottom: 100%; left: 50%;"></div>
+                        <div class="flowchart-node border-[#7A5195] bg-[#7A5195]/10">
+                            <h3 class="font-bold text-[#7A5195]">Book</h3>
+                            <p class="text-sm">+ author</p>
+                        </div>
+                    </div>
+                    <div class="relative w-1/4">
+                        <div class="flowchart-connector h-8" style="bottom: 100%; left: 50%;"></div>
+                        <div class="flowchart-node border-[#BC5090] bg-[#BC5090]/10">
+                            <h3 class="font-bold text-[#BC5090]">Movie</h3>
+                            <p class="text-sm">+ director</p>
+                            <p class="text-sm">+ duration</p>
+                        </div>
+                    </div>
+                    <div class="relative w-1/4">
+                        <div class="flowchart-connector h-8" style="bottom: 100%; left: 50%;"></div>
+                        <div class="flowchart-node border-[#EF5675] bg-[#EF5675]/10">
+                            <h3 class="font-bold text-[#EF5675]">Audiobook</h3>
+                            <p class="text-sm">+ author</p>
+                            <p class="text-sm">+ narrator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-[#003F5C] mb-4">The Four Pillars of OOP</h2>
+            <p class="text-slate-600 mb-6">This project requires you to apply the fundamental principles of Object-Oriented Programming.</p>
+            <ul class="space-y-4">
+                <li class="p-4 rounded-lg bg-slate-50 border-l-4 border-[#374C80]">
+                    <h3 class="font-bold text-[#374C80]">Abstraction</h3>
+                    <p class="text-sm text-slate-600">`MediaItem` is abstract. It defines a contract (`displayDetails()`) without a concrete implementation, hiding complexity and focusing on essential features.</p>
+                </li>
+                <li class="p-4 rounded-lg bg-slate-50 border-l-4 border-[#7A5195]">
+                    <h3 class="font-bold text-[#7A5195]">Inheritance</h3>
+                    <p class="text-sm text-slate-600">`Book`, `Movie`, and `Audiobook` inherit properties and behaviors from `MediaItem`, promoting code reuse and establishing a clear hierarchy.</p>
+                </li>
+                <li class="p-4 rounded-lg bg-slate-50 border-l-4 border-[#BC5090]">
+                    <h3 class="font-bold text-[#BC5090]">Polymorphism</h3>
+                    <p class="text-sm text-slate-600">Calling `displayDetails()` on any `MediaItem` object results in a unique output specific to its actual type (`Book`, `Movie`, etc.). One action, many forms.</p>
+                </li>
+                <li class="p-4 rounded-lg bg-slate-50 border-l-4 border-[#EF5675]">
+                    <h3 class="font-bold text-[#EF5675]">Encapsulation</h3>
+                    <p class="text-sm text-slate-600">All properties are `protected`, bundling data with the methods that operate on it and restricting direct external access to ensure data integrity.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+            <h2 class="text-2xl font-bold text-[#003F5C] mb-4">Polymorphism in Action</h2>
+            <p class="text-slate-600 mb-6">The `displayDetails()` method showcases polymorphism. Although called on a generic `MediaItem` reference, the specific implementation for each subclass is executed, resulting in varied output complexity.</p>
+            <div class="chart-container flex-grow">
+                <canvas id="polymorphismChart"></canvas>
+            </div>
+            <p class="text-xs text-center text-slate-500 mt-2">Chart shows the number of unique data fields displayed by each class's `displayDetails()` method.</p>
+        </div>
+
+        <div class="md:col-span-2 bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-center text-[#003F5C] mb-8">Project Workflow: Tasks 1-5</h2>
+            <div class="relative pl-8 border-l-2 border-slate-300">
+                <div class="timeline-item mb-8">
+                    <h3 class="text-lg font-bold text-[#374C80]">Task 1: The Core Media Blueprint</h3>
+                    <p class="text-slate-600">Create the abstract `MediaItem` class to serve as the foundation.</p>
+                </div>
+                <div class="timeline-item mb-8">
+                    <h3 class="text-lg font-bold text-[#7A5195]">Task 2: Creating Specialized Media Types</h3>
+                    <p class="text-slate-600">Define the `Book`, `Movie`, and `Audiobook` classes that extend `MediaItem`.</p>
+                </div>
+                <div class="timeline-item mb-8">
+                    <h3 class="text-lg font-bold text-[#BC5090]">Task 3: Implementing Unique Behaviors</h3>
+                    <p class="text-slate-600">Provide a specific `displayDetails()` implementation for each concrete class.</p>
+                </div>
+                <div class="timeline-item mb-8">
+                    <h3 class="text-lg font-bold text-[#EF5675]">Task 4: The Library Manager</h3>
+                    <p class="text-slate-600">Build the `Library` class to hold and manage a collection of `MediaItem` objects.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3 class="text-lg font-bold text-[#FF764A]">Task 5: Application Entry Point</h3>
+                    <p class="text-slate-600">Create the `Main` class to instantiate objects, populate the library, and run the program.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+            <h2 class="text-2xl font-bold text-[#003F5C] mb-4">Evaluation for Success</h2>
+            <p class="text-slate-600 mb-6">Your submission is evaluated on four key areas. A strong project demonstrates mastery across all of them, showing not just a working program, but a well-designed and robust software solution.</p>
+            <div class="chart-container flex-grow">
+                <canvas id="evaluationChart"></canvas>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold text-[#003F5C] mb-4">Expected Output Format</h2>
+            <p class="text-slate-600 mb-6">The final console output must adhere strictly to the specified format for each media type to pass the assessment.</p>
+            <div class="bg-slate-900 text-white rounded-lg p-4 font-mono text-sm whitespace-pre-wrap">
+                <p>Book &rarr; Title: The Hobbit, Author: J.R.R. Tolkien, Year: 1937</p>
+                <p>Movie &rarr; Title: The Lord of the Rings, Director: Peter Jackson, Year: 2001, Duration: 178 mins</p>
+                <p>Audiobook &rarr; Title: Dune, Author: Frank Herbert, Narrator: Scott Brick, Year: 1965</p>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const brilliantBlues = ['#374C80', '#BC5090', '#FF764A'];
+        const evaluationPalette = ['#003F5C', '#7A5195', '#EF5675', '#FFA600'];
+
+        const wrapLabel = (label, maxLength = 16) => {
+            if (label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            } else {
+                return label;
+            }
+        };
+
+        const polymorphismCtx = document.getElementById('polymorphismChart');
+        if(polymorphismCtx) {
+            new Chart(polymorphismCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Book', 'Movie', 'Audiobook'],
+                    datasets: [{
+                        label: 'Unique Data Fields Displayed',
+                        data: [3, 4, 4],
+                        backgroundColor: brilliantBlues,
+                        borderColor: brilliantBlues.map(c => c + 'FF'),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        const evaluationCtx = document.getElementById('evaluationChart');
+        if(evaluationCtx) {
+            const originalLabels = ['Class Design', 'Data Integrity (Encapsulation)', 'Polymorphism', 'Code Quality & Functionality'];
+            const wrappedLabels = originalLabels.map(label => wrapLabel(label));
+
+            new Chart(evaluationCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: wrappedLabels,
+                    datasets: [{
+                        label: 'Evaluation Weight',
+                        data: [25, 25, 25, 25],
+                        backgroundColor: evaluationPalette,
+                        borderColor: '#ffffff',
+                        borderWidth: 2,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: tooltipTitleCallback
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
