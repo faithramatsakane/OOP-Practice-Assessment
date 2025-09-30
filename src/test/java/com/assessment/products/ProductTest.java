@@ -1,13 +1,12 @@
 package com.assessment.products;
 
 import org.junit.jupiter.api.*;
-
+import static org.junit.jupiter.api.Assertions.*;
 /**
  * Comprehensive test suite for E-Commerce System
  * DO NOT MODIFY THIS FILE
  */
 public class ProductTest {
-
 
 
     @Test
@@ -127,3 +126,4 @@ public class ProductTest {
         product.setStockQuantity(-5);
         assertEquals(10, product.getStockQuantity());
     }
+}

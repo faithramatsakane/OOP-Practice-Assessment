@@ -25,11 +25,12 @@ class OrderTest {
         customer.addToCart(tablet);
 
         PaymentMethod creditCard = new CreditCardPayment("9999888877776666");
+
         Order order = new Order("ORD001", customer, creditCard);
 
         assertEquals("ORD001", order.getOrderId());
 
-        // Tablet: 400 - 20 (5%) = 380
+        // Tablet: 400 * 0.95 = 380.00 (5% off for price <= 500)
         assertEquals(380.0, order.calculateTotal(), 0.01);
 
         int initialStock = tablet.getStockQuantity();
@@ -37,6 +38,7 @@ class OrderTest {
 
         assertTrue(success);
         assertEquals(initialStock - 1, tablet.getStockQuantity());
+
         assertEquals(0, customer.getCart().size());
     }
 
@@ -60,12 +62,14 @@ class OrderTest {
         customer.addToCart(jacket);
 
         PaymentMethod paypal = new PayPalPayment("eve@email.com");
+
         Order order = new Order("ORD002", customer, paypal);
 
-        // Phone: 600 - 60 (10%) = 540
-        // Book: 40 - 4.8 (12%) = 35.2
-        // Jacket: 120 - 18 (15%) = 102
-        // Total: 677.2
+        // Expected Calculations:
+        // Phone: 600 * 0.90 = 540.00 (10% off for price > 500)
+        // Book: 40 * 0.88 = 35.20 (12% off for pages > 300)
+        // Jacket: 120 * 0.85 = 102.00 (15% off for price > 100)
+        // Total: 677.20
         assertEquals(677.2, order.calculateTotal(), 0.01);
 
         assertTrue(order.processOrder());
@@ -82,14 +86,17 @@ class OrderTest {
 
         customer.addToCart(expensive);
 
-
+        // Expected total is 2000 * 0.90 = 1800.00
         PaymentMethod cash = new CashPayment(100.0);
+
         Order order = new Order("ORD003", customer, cash);
 
         assertFalse(order.processOrder());
 
 
         assertEquals(3, expensive.getStockQuantity());
+
+        assertEquals(1, customer.getCart().getItemCount());
     }
 
     @Test
@@ -98,6 +105,7 @@ class OrderTest {
         Customer customer = new Customer("Grace Lee", "grace@email.com");
 
         PaymentMethod creditCard = new CreditCardPayment("1234567890123456");
+
         Order order = new Order("ORD004", customer, creditCard);
 
         assertEquals(0.0, order.calculateTotal(), 0.01);

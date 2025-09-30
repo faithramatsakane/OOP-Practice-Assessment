@@ -4,8 +4,16 @@ package com.assessment.payment;
  * Interface for different payment methods
  */
 public interface PaymentMethod {
-    // TODO: Declare an abstract method processPayment that takes a double amount
-    // and returns a boolean indicating success
+    /**
+     * Processes the payment for a given amount.
+     * @param amount The total amount to be paid.
+     * @return true if the payment was successful, false otherwise.
+     */
+    boolean processPayment(double amount);
 
-    // TODO: Declare an abstract method getPaymentDetails that returns a String
+    /**
+     * Returns a string containing the details of the payment method.
+     * @return The payment details string.
+     */
+    String getPaymentDetails();
 }

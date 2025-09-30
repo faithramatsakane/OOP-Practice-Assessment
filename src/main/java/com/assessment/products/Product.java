@@ -1,23 +1,56 @@
 package com.assessment.products;
 
 /**
- * Abstract base class for all products (Abstraction & Inheritance)
+ * Abstract base class for all products
  */
 public abstract class Product {
     // TODO: Declare private fields for id, name, price, and stockQuantity
-    // (Encapsulation - use private access modifier)
 
+    /**
+     * Constructs a Product object.
+     * @param id The product ID.
+     * @param name The product name.
+     * @param price The unit price of the product.
+     * @param stockQuantity The number of units in stock.
+     */
     // TODO: Create a constructor that initializes all fields
+    public Product(String id, String name, double price, int stockQuantity) {
+        // TODO: IMPLEMENT: Initialize fields, calling setters for price and stockQuantity.
+    }
 
     // TODO: Create getters for all fields
+    public String getId() { return ""; }
+    public String getName() { return ""; }
+    public double getPrice() { return 0.0; }
+    public int getStockQuantity() { return 0; }
 
     // TODO: Create setters for price and stockQuantity with validation
-    // Price must be >= 0, stockQuantity must be >= 0
+    public void setPrice(double price) {
+        // TODO: IMPLEMENT: Set price, throwing IllegalArgumentException if price < 0.
+    }
 
-    // TODO: Create an abstract method calculateDiscount() that returns double
-    // This will be overridden by subclasses (Polymorphism)
+    public void setStockQuantity(int stockQuantity) {
+        // TODO: IMPLEMENT: Set stockQuantity, throwing IllegalArgumentException if quantity < 0.
+    }
 
-    // TODO: Create a method getDiscountedPrice() that returns price minus discount
+    /**
+     * Abstract method to calculate the product's discount based on its specific type rules.
+     * @return The discount amount in dollars (not percentage).
+     */
+    public abstract double calculateDiscount();
 
-    // TODO: Override toString() to display product information
+    /**
+     * Calculates the price after applying the discount.
+     * @return The final price after discount.
+     */
+    public double getDiscountedPrice() {
+        // TODO: IMPLEMENT: Return the price after subtracting the discount.
+        return 0.0;
+    }
+
+    @Override
+    public String toString() {
+        // TODO: IMPLEMENT: Return a formatted string with core product information.
+        return "Product Summary";
+    }
 }

@@ -26,9 +26,11 @@ class CustomerTest {
         customer.addToCart(phone);
         customer.addToCart(book);
 
+
         assertEquals(2, customer.getCart().size());
 
         customer.removeFromCart(phone);
+
         assertEquals(1, customer.getCart().size());
     }
 
@@ -47,9 +49,10 @@ class CustomerTest {
         customer.addToCart(laptop);
         customer.addToCart(shirt);
 
-        // Laptop: 1000 - 100 (10%) = 900
-        // Shirt: 25 - 2 (8%) = 23
-        // Total: 923
+        // Expected Calculations (Discount logic is correct, assuming student implementation):
+        // Laptop: 1000 * 0.90 = 900.00 (10% off for price > 500)
+        // Shirt: 25 * 0.92 = 23.00 (8% off for price <= 100)
+        // Total: 923.0
         assertEquals(923.0, customer.getCartTotal(), 0.01);
     }
 
@@ -64,7 +67,7 @@ class CustomerTest {
 
         customer.addToCart(outOfStock);
 
-        // Should not be added to cart if out of stock
+
         assertEquals(0, customer.getCart().size());
     }
 }
