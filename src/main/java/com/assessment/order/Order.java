@@ -12,6 +12,11 @@ import java.util.UUID;
  * Order class that ties everything together
  */
 public class Order {
+    private  String orderID;
+    private Customer customer;
+    private  List<Product> products;
+    private PaymentMethod paymentMethod;
+
     // TODO: Add private fields for orderId (String), customer (Customer),
     // products (List<Product>), and paymentMethod (PaymentMethod)
 
@@ -20,6 +25,10 @@ public class Order {
      * This is the ONLY constructor, enforcing internal ID generation.
      */
     public Order(Customer customer, PaymentMethod paymentMethod) {
+        this.orderID = "ORD-" + UUID.randomUUID().toString();
+        this.customer = customer;
+        this.paymentMethod = paymentMethod;
+        this.products = new ArrayList<>(customer.getCart());
         // TODO: IMPLEMENT: Initialize orderId with the UUID structure ("ORD-" + UUID.randomUUID().toString()).
         // TODO: IMPLEMENT: Initialize customer and paymentMethod fields.
 
@@ -29,17 +38,37 @@ public class Order {
 
     // TODO: Create getter for orderId
     public String getOrderId() {
-        
+        return orderID;
         // return the generated ID.
-        return "GENERATED_ID";
+        //return "GENERATED_ID";
     }
 
     public double calculateTotal() {
+        double total = 0.0;
+        for (Product product :products) {
+            total += product.getDiscountedPrice();
+        }
+        return  total;
         // TODO: IMPLEMENT: Sum up all discounted product prices from the order list.
-        return 0.0;
+        //return 0.0;
     }
 
     public boolean processOrder() {
+        if (products.isEmpty()) return false;
+
+        double total = calculateTotal();
+        boolean success = paymentMethod.processPayment(total);
+
+        if (success) {
+            for (Product product : products) {
+                product.setStockQuantity(product.getStockQuantity() -1);
+            }
+            customer.clearCart();
+
+            if (paymentMethod instanceof  CashPayment cash) {
+
+            }
+        }
         // TODO: IMPLEMENT STEPS:
         // 1. Check if products list is not empty.
         // 2. Calculate total.
